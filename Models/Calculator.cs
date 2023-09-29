@@ -5,9 +5,10 @@ namespace BudgetTool.Models
     public class Calculator
     {
         public int Id { get; set; }
-        public decimal LoanBalance { get; set; }
-        public decimal MonthlyPayment { get; set; }
-        public decimal InterestRate { get; set; }
-        public RepaymentFrequency RepaymentOption { get; set; }
+        public double LoanBalance { get; set; }
+        public double MonthlyPayment { get; set; }
+        public double InterestRate { get; set; }
+        public double ExtraPayment { get; set; }
+        public RepaymentOption RepaymentOption { get; set; }
     }
 }

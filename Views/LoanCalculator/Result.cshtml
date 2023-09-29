@@ -1,0 +1,20 @@
+﻿@* @model BudgetTool.Models.LoanCalculationResultViewModel
+
+<h2>Loan Calculation Results</h2>
+
+<div>
+    <h3>Original Loan Details</h3>
+    <p>Loan Balance: $@Model.OriginalMonthlyPayment</p>
+    <p>Monthly Payment: $@Model.OriginalMonthlyPayment</p>
+    <p>Extra Payment: $@Model.ExtraPayment</p>
+</div>
+
+<div>
+    <h3>Results</h3>
+    <p>Remaining Term: @Model.RemainingTerm months</p>
+    <p>New Term (with Extra Payment): @Model.NewTerm months</p>
+    <p>Interest Saved: $@Model.InterestSaved</p>
+</div>
+
+<a asp-action="Calculator" class="btn btn-primary">Back to Calculator</a>
+ *@

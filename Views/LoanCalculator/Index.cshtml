@@ -6,31 +6,31 @@
 <hr />
 <div class="row">
     <div class="col-md-6">
-        <form asp-action="Create">
+        <form asp-action="Calculate">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="LoanBalance" class="control-label"></label>
-                <input asp-for="LoanBalance" class="form-control" />
+                <label asp-for="LoanBalance" class="control-label">Loan Balance</label>
+                <input type="number" asp-for="LoanBalance" class="form-control" />
                 <span asp-validation-for="LoanBalance" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MonthlyPayment" class="control-label"></label>
-                <textarea rows="2" asp-for="MonthlyPayment" class="form-control"></textarea>
+                <label asp-for="MonthlyPayment" class="control-label">Monthly Payment</label>
+                <input type="number" asp-for="MonthlyPayment" class="form-control"/>
                 <span asp-validation-for="MonthlyPayment" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="InterestRate" class="control-label"></label>
+                <label asp-for="InterestRate" class="control-label">Interest Rate (%)</label>
                 <input asp-for="InterestRate" class="form-control" />
                 <span asp-validation-for="InterestRate" class="text-danger"></span>
             </div>                                       
-            <div class=" col-md-6">
+            <div class=" col-md-8">
                 <div>
                     <label asp-for="RepaymentOption">Payment Options</label>
                 </div>
-                @foreach (var c in System.Enum.GetValues(typeof(RepaymentFrequency)))
+                @foreach (var c in System.Enum.GetValues(typeof(RepaymentOption)))
                 {
                     <label class="radio-inline margin-rightt-ten margin-leftt-five margin-top-none">
-                        @(Html.RadioButtonFor<RepaymentFrequency>(m => m.RepaymentOption, (RepaymentFrequency)c, null))
+                        @(Html.RadioButtonFor<RepaymentOption>(m => m.RepaymentOption, (RepaymentOption)c, null))
                         @c
                     </label>
                 }
