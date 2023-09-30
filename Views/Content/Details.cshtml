@@ -1,0 +1,33 @@
+﻿@model BudgetTool.Models.Content
+
+@{
+    ViewData["Title"] = "Content Details";
+}
+
+<h2>
+    @Html.DisplayNameFor(model => model.Title)
+</h2>
+    
+<div>
+    <h4>Content</h4>
+    <hr/>
+
+    <div class="row">
+        <div class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+        @if (!string.IsNullOrEmpty(Model.MediaURL))
+        {
+            <div class="video-container">
+                <iframe width="560" height="315" src="@Model.MediaURL" frameborder="0" allowfullscreen></iframe>
+                </div>
+        }
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+    <a asp-action="Index">Back to List</a>
+</div>
