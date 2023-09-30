@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BudgetTool.Models;
 using BudgetTool.Enums;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BudgetTool.Controllers
 {
+    [Authorize]
     public class LoanCalculatorController : Controller
     {
         public IActionResult Index()

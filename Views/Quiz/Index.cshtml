@@ -1,20 +1,90 @@
-﻿@model List<Question>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Quiz</title>
+    <style>
+        /* Add your CSS styles for the quiz page here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Financial Quiz</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <p>1. What is the term for a sudden, severe drop in the stock market, often resulting in panic selling?</p>
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q1" value="a"> a) Recession
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="b"> b) Crash
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="c"> c) Inflation
+                    </label>
+                </div>
+            </div>
+            <div class="question">
+                <p>2. What type of account offers tax advantages for retirement savings in the United States?</p>
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q2" value="a"> a) Savings account
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="b"> b) 401(k)
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="c"> c) Checking account
+                    </label>
+                </div>
+            </div>
+            <a asp-controller="Quiz" asp-action="SubmitQuiz" class="btn btn-primary" id="submit-button">Submit Quiz</a>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        // Add JavaScript code for quiz scoring and handling here
+        document.getElementById("submit-button").addEventListener("click", function () {
+            const answers = {
+                q1: document.querySelector('input[name="q1"]:checked').value,
+                q2: document.querySelector('input[name="q2"]:checked').value,
+            };
 
-<form method="post" asp-action="SubmitQuiz">
-    @for (var i = 0; i < Model.Count; i++)
-    {
-        <div class="question">
-            <p>@Model[i].Text</p>
-            @for (var j = 0; j < Model[i].Choices.Count; j++)
-            {
-                <label>
-                    <input type="radio" name="selectedAnswers[@i]" value="@j">
-                    @Model[i].Choices[j]
-                </label>
+            const correctAnswers = {
+                q1: "b",
+                q2: "b",
+            };
 
-                <br />
+            let score = 0;
+
+            for (const question in answers) {
+                if (answers.hasOwnProperty(question) && answers[question] === correctAnswers[question]) {
+                    score++;
+                }
             }
-        </div>
-    }
-    <button type="submit">Submit Quiz</button>
-</form>
+
+            const resultElement = document.getElementById("result");
+            resultElement.innerHTML = `You scored ${score} out of ${Object.keys(answers).length} correct!`;
+        });
+    </script>
+</body>
+</html>

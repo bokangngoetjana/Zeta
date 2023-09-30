@@ -1,10 +1,66 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* CSS styles for the menu bar */
+        .menu-bar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
 
+        /* CSS styles for the container */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
 
+        /* CSS styles for the cards */
+        .card {
+            flex-basis: calc(33.33% - 20px); /* 33.33% width with some spacing */
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <h1>Dashboard</h1>
+    </div>
 
+    <!-- Container for Cards -->
+    <div class="container">
+        <!-- Card 1 -->
+        <div class="card">
+            <a class="nav-link text-dark" asp-area="" asp-controller="LoanCalculator" asp-action="Index">
+                <h2>Student Loan Calculator</h2>
+               
+           </a>
+        </div>
 
-<div class="text-center">
-    <h1 class="display-4"> Student Financial Assistance</h1>
-</div>
+        <!-- Card 2 -->
+        <div class="card">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Content" asp-action="Index">
+                <h2>Financial Education</h2>
+
+            </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Quiz" asp-action="Index">
+                <h2>Take Quizzes and Earn Rewards</h2>
+
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BudgetTool.Models;
 using BudgetTool.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BudgetTool.Controllers
 {
+    [Authorize]
     public class QuizController : Controller
     {
         private List<Question> _questions;

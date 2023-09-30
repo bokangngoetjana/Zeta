@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BudgetTool.Data;
 using BudgetTool.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BudgetTool.Controllers
 {
+    [Authorize]
     public class ContentController : Controller
     {
         private readonly ApplicationDbContext _context;
