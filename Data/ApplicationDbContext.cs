@@ -15,6 +15,7 @@ namespace BudgetTool.Data
         {
         }
         public DbSet<Content> Content { get; set; }
+        public object Questions { get; internal set; }
         //public DbSet<Quiz> quizzes { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder builder)

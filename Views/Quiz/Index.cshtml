@@ -1,0 +1,20 @@
+﻿@model List<Question>
+
+<form method="post" asp-action="SubmitQuiz">
+    @for (var i = 0; i < Model.Count; i++)
+    {
+        <div class="question">
+            <p>@Model[i].Text</p>
+            @for (var j = 0; j < Model[i].Choices.Count; j++)
+            {
+                <label>
+                    <input type="radio" name="selectedAnswers[@i]" value="@j">
+                    @Model[i].Choices[j]
+                </label>
+
+                <br />
+            }
+        </div>
+    }
+    <button type="submit">Submit Quiz</button>
+</form>
