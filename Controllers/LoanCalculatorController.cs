@@ -10,6 +10,10 @@ namespace BudgetTool.Controllers
         {
             return View();
         }
+        public IActionResult CalculatorWithResults()
+        {
+            return View();
+        }
 
         [HttpGet]
         public IActionResult Calculator()
